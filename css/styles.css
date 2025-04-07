@@ -1,0 +1,474 @@
+:root {
+
+    /* Colors */
+
+    /* Neutral */
+
+    --neutral-900: hsl(227, 75%, 14%);
+    --neutral-800: hsl(226, 25%, 17%);
+    --neutral-700: hsl(225, 23%, 24%);
+    --neutral-600: hsl(226, 11%, 37%);
+    --neutral-300: hsl(0, 0%, 78%);
+    --neutral-200: hsl(217, 61%, 90%);
+    --neutral-100: hsl(0, 0%, 93%);
+    --neutral-0: hsl(200, 60%, 99%);
+
+    /* Red */
+
+    --red-400: hsl(3, 86%, 64%);
+    --red-500: hsl(3, 71%, 56%);
+    --red-700: hsl(3, 77%, 44%);
+
+    /* gradients */
+
+    --light-gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --dark-gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+
+}
+
+[data-theme="dark"] {
+
+    /* header */
+    --heading-colour: var(--neutral-0);
+    --background-colour: var(--neutral-800);
+
+    /* menu buttons */
+    --menuButton-active-colour: var(--red-400);
+    --menuButton-active-text-colour: var(--neutral-800);
+    --menuButton-colour: var(--neutral-700);
+    --menuButton-border-colour: var(--neutral-600);
+    --menuButton-text-colour: var(--neutral-0);
+    --menuButton-active-hover: var(--red-500);
+    --menuButton-hover: var(--neutral-600);
+    --menuButton-not-active-hover-text-colour: var(--neutral-0);
+
+    /* icon */
+    --icon-background-colour: var(--neutral-700);
+    --icon-hover: var(--neutral-600);
+
+    /* slider */
+    --slider: var(--neutral-600);
+    --slider-active: var(--red-400);
+    --slider-active-hover: var(--red-500);
+
+    /* grid item */
+    --gridItem-background-colour: var(--neutral-800);
+    --gridItem-border-colour: var(--neutral-700);
+    --gridItem-header: var(--neutral-0);
+    --gridItem-text: var(--neutral-300);
+
+    /* button grid */
+    --buttonGrid-background: var(--neutral-700);
+    --buttonGrid-border: var(--neutral-600);
+    --buttonGrid-text: var(--neutral-0);
+    --buttonGrid-hover: var(--red-500);
+    --buttonGrid-hover-text: var(--neutral-800);
+
+    /* element focus */
+    --element-focus-colour: var(--red-500);
+
+}
+
+[data-theme="light"] {
+
+    /* header */
+    --heading-colour: #091540;
+    --background-colour: var(--neutral-0);
+
+    /* menu buttons */
+    --menuButton-active-colour: var(--red-700);
+    --menuButton-active-text-colour: var(--neutral-0);
+    --menuButton-colour: var(--neutral-0);
+    --menuButton-border-colour: var(--neutral-100);
+    --menuButton-text-colour: var(--neutral-800);
+    --menuButton-active-hover: var(--red-500);
+    --menuButton-hover: var(--neutral-100);
+    --menuButton-not-active-hover-text-colour: var(--neutral-600);
+
+    /* icon */
+    --icon-background-colour: var(--neutral-100);
+    --icon-hover: var(--neutral-300);
+
+    /* slider */
+    --slider: var(--neutral-300);
+    --slider-active: var(--red-700);
+    --slider-active-hover: var(--red-500);
+
+    /* grid item */
+    --gridItem-background-colour: var(--neutral-0);
+    --gridItem-border-colour: var(--neutral-100);
+    --gridItem-header: var(--neutral-800);
+    --gridItem-text: var(--neutral-600);
+
+    /* button grid */
+    --buttonGrid-background: var(--neutral-0);
+    --buttonGrid-border: var(--neutral-300);
+    --buttonGrid-text: var(--neutral-800);
+    --buttonGrid-hover: var(--red-700);
+    --buttonGrid-hover-text: var(--neutral-0);
+
+    /* element focus */
+    --element-focus-colour: var(--red-700);
+
+}
+
+@font-face {
+    font-family: 'Noto Sans'; 
+    src: url('../assets/fonts/NotoSans-VariableFont_wdth\,wght.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans Italic'; 
+    src: url('../assets/fonts/NotoSans-Italic-VariableFont_wdth\,wght.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+    background: var(--dark-gradient);
+    min-height: 100vh;
+    align-items: center;
+    padding-inline: 2rem;
+    padding-bottom: 3rem;
+    color: white;
+    transition: color 0.4s ease;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: var(--light-gradient);
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+[data-theme="light"] body::before {
+    opacity: 1;
+}
+
+[data-theme="dark"] body::before {
+    opacity: 0;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* utility classes */
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+/* custom */
+
+.button--red {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: var(--menuButton-colour);
+    border: 1px solid var(--menuButton-border-colour);
+    color: var(--menuButton-text-colour);
+    font-weight: 500;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.button--red.active {
+    background: var(--menuButton-active-colour);
+    border: 1px solid var(--menuButton-active-colour);
+    color: var(--menuButton-active-text-colour);
+}
+
+.button--grid {
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    background: var(--buttonGrid-background);
+    border: 1px solid var(--buttonGrid-border);
+    font-weight: 700;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    color: var(--buttonGrid-text);
+}
+
+/* header */
+
+.header {
+    width: 100%;
+    max-width: 70rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--background-colour);
+    align-items: center;
+    border-radius: 15px;
+}
+
+.logo-text {
+    fill: var(--heading-colour);
+}
+
+.button--theme-toggle {
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: var(--icon-background-colour);
+    transition: background 0.4s ease;
+}
+
+[data-theme="dark"] #moon,
+[data-theme="light"] #sun {
+    display: none;
+}
+  
+[data-theme="dark"] #sun,
+[data-theme="light"] #moon {
+    display: block;
+}
+
+/* extensions */
+
+.extensions {
+    margin-top: 3rem;
+    width: 100%;
+    max-width: 70rem;
+}
+
+.button-bar__text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--heading-colour);
+}
+
+.button-bar__wrapper {
+    gap: 0.5rem;
+}
+
+.extensions__grid {
+    margin-top: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    gap: 0.75rem;
+}
+
+/* extension grid item */
+
+.extensions__grid-item {
+    width: 100%;
+    min-height: 12rem;
+    border-radius: 20px;
+    background: var(--gridItem-background-colour);
+    border: 1px solid var(--gridItem-border-colour);
+    padding: 1rem;
+    gap: 1rem;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.grid-item__top-container {
+    gap: 1rem;
+}
+
+.grid-item__icon {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.grid-item__header {
+    font-size: 1.25rem;
+    color: var(--gridItem-header);
+}
+
+.grid-item__p {
+    color: var(--gridItem-text);
+}
+
+.grid-item__text-container {
+    gap: 0.5rem;
+}
+
+/* switch */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--slider);
+    border-radius: 25px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+  
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3.5px;
+    background-color: white;
+    border-radius: 50%;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+  
+input:checked + .slider {
+    background-color: var(--slider-active);
+}
+  
+input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+/* focus settings */
+
+button:focus-visible {
+    outline: 2px solid var(--element-focus-colour);
+    outline-offset: 2px;
+}
+
+.switch input:focus-visible + .slider {
+    outline: 2px solid var(--element-focus-colour);
+    outline-offset: 2px;
+}
+
+@media (hover:hover) {
+
+    /* theme button */
+    .button--theme-toggle:hover {
+        background: var(--icon-hover);
+    }
+
+    /* menu buttons */
+    .button--red:not(.active):hover  {
+        background: var(--menuButton-hover);
+        color: var(--menuButton-not-active-hover-text-colour);
+    }
+
+    .button--red.active:hover {
+        background: var(--menuButton-active-hover);
+    }
+
+    /* sliders */
+    input:checked + .slider:hover {
+        background: var(--slider-active-hover);
+    }
+
+    /* button grid */
+    .button--grid:hover {
+        background: var(--buttonGrid-hover);
+        color: var(--buttonGrid-hover-text);
+        border-color: var(--buttonGrid-hover);
+    }
+}
+
+@media (hover:none) {
+
+     /* theme button */
+     .button--theme-toggle:active {
+        background: var(--icon-hover);
+    }
+
+    /* menu buttons */
+    .button--red:not(.active):active  {
+        background: var(--menuButton-hover);
+        color: var(--menuButton-not-active-hover-text-colour);
+    }
+
+    .button--red.active:active {
+        background: var(--menuButton-active-hover);
+    }
+
+    /* sliders */
+    input:checked + .slider:active {
+        background: var(--slider-active-hover);
+    }
+
+    /* button grid */
+    .button--grid:active {
+        background: var(--buttonGrid-hover);
+        color: var(--buttonGrid-hover-text);
+        border-color: var(--buttonGrid-hover);
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .extensions__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .extensions {
+        margin-top: 2rem;
+    }
+
+    .extensions__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .extensions__button-bar {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .button-bar__wrapper {
+        gap: 1rem;
+    }
+
+}
+  
+
+
